@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Task and Deadline Manager</title>
+    <!-- Link to External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- =========================================================
+         SCREEN 1: DASHBOARD
+         ========================================================= -->
+    <div class="app-container">
+        <!-- Header Section with Application Title & Control 1 -->
+        <div class="header-row">
+            <h2>Student Task and Deadline Manager</h2>
+            <!-- Control 1: Add Task Button (Opens empty task form modal) -->
+            <button class="btn-add" id="openAddModalBtn">+ Add Task</button>
+        </div>
+
+        <!-- Control 2: Summary Tiles (Total, Pending, Completed counts) -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <h4>Total tasks</h4>
+                <div class="number" id="statTotal">00</div>
+            </div>
+            <div class="stat-card">
+                <h4>Pending</h4>
+                <div class="number" id="statPending">00</div>
+            </div>
+            <div class="stat-card">
+                <h4>Completed</h4>
+                <div class="number" id="statCompleted">00</div>
+            </div>
+        </div>
+
+        <!-- Control 3: Search Box (Filters visible task list dynamically) -->
+        <input type="text" class="search-box" id="searchInput" placeholder="Search tasks by keyword...">
+
+        <!-- Control 4: Status Filter Tabs (All, Pending, Completed) -->
+        <div class="filter-tabs">
+            <button class="tab-btn active" data-filter="all">All</button>
+            <button class="tab-btn" data-filter="pending">Pending</button>
+            <button class="tab-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <!-- Dynamic Task List Container (Populated by JavaScript) -->
+        <div class="task-list" id="taskList">
+            <!-- Empty state or list items will be injected here via DOM manipulation -->
+        </div>
+    </div>
+
+    <!-- =========================================================
+         SCREEN 2: ADD / EDIT TASK FORM (Modal Overlay)
+         ========================================================= -->
+    <div class="modal-overlay" id="taskModal">
+        <div class="modal">
+            <h3 id="modalTitle">Add Task / Edit Task</h3>
+            <form id="taskForm">
+                <input type="hidden" id="taskId">
+                
+                <div class="form-group">
+                    <label for="taskTitle">Title (required)</label>
+                    <input type="text" id="taskTitle" placeholder="e.g. Research paper outline">
+                </div>
+                <div class="form-group">
+                    <label for="taskSubject">Subject</label>
+                    <input type="text" id="taskSubject" placeholder="e.g. Science">
+                </div>
+                <div class="form-group">
+                    <label for="taskDesc">Description</label>
+                    <textarea id="taskDesc" placeholder="Short details about the task"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="taskDeadline">Deadline (required)</label>
+                    <input type="date" id="taskDeadline">
+                    <!-- Inline Validation Error Message Container -->
+                    <div class="error-msg" id="formError">Please fill in the title and deadline.</div>
+                </div>
+
+                <div class="modal-actions">
+                    <!-- Control 10: Cancel Button (Closes dialog without saving) -->
+                    <button type="button" class="btn-secondary" id="closeTaskModalBtn">Cancel</button>
+                    <!-- Control 9: Save Task Button (Validates & saves data) -->
+                    <button type="submit" class="btn-primary" id="saveTaskBtn">Save Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         SCREEN 3: DELETE CONFIRMATION (Modal Overlay)
+         ========================================================= -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal">
+            <h3>Delete this task?</h3>
+            <p>The task will be removed from this browser's saved list.</p>
+            <div class="modal-actions">
+                <!-- Control 10: Cancel Button (Dismisses confirmation dialog) -->
+                <button type="button" class="btn-secondary" 
+                id="cancelDeleteBtn">Cancel</button>
+                <!-- Control 11: Confirm Delete Button (Removes task permanently) -->
+                <button type="button" class="btn-primary btn-danger" 
+                id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to External JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

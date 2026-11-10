@@ -1,0 +1,278 @@
+
+:root {
+    --primary-color: #1a1a1a;
+    --accent-color: #000000;
+    --bg-color: #f4f6f8;
+    --card-bg: #ffffff;
+    --border-color: #ccc;
+    --danger-color: #d9534f;
+    --success-color: #5cb85c;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    margin: 0;
+    padding: 20px;
+}
+
+/* Application Container Box */
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Header & Title Alignment */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* =========================================================
+   2. BUTTON STYLES (Control 1, 6, 7, 9, 10, 11)
+   ========================================================= */
+.btn-add {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn-add:hover {
+    opacity: 0.85;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: #ccc;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: var(--danger-color);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 13px;
+    border: 1px solid var(--border-color);
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-sm:hover {
+    background: #eee;
+}
+
+/* =========================================================
+   3. SUMMARY TILES & SEARCH (Controls 2 & 3)
+   ========================================================= */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 6px;
+    background: #fff;
+}
+.stat-card h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+.stat-card .number {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Search Input Styling */
+.search-box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   4. FILTER TABS (Control 4)
+   ========================================================= */
+.filter-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--border-color);
+    background: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* =========================================================
+   5. TASK LIST & ITEM CARDS (Controls 5, 6, 7)
+   ========================================================= */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    padding: 12px 16px;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.task-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-grow: 1;
+}
+
+.task-details h5 {
+    margin: 0 0 3px 0;
+    font-size: 16px;
+}
+
+.task-details p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Status Badges */
+.badge {
+    padding: 4px 8px;
+    font-size: 11px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.badge.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+.badge.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* Empty State Container */
+.empty-state {
+    border: 2px dashed var(--border-color);
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* =========================================================
+   6. MODAL OVERLAYS (Screens 2 & 3)
+   ========================================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Controlled via JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    width: 450px;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3 {
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.error-msg {
+    color: var(--danger-color);
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
